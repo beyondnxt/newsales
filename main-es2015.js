@@ -604,6 +604,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/_services/global-error-handler.ts":
+/*!***************************************************!*\
+  !*** ./src/app/_services/global-error-handler.ts ***!
+  \***************************************************/
+/*! exports provided: GlobalErrorHandler */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalErrorHandler", function() { return GlobalErrorHandler; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+
+class GlobalErrorHandler {
+    handleError(error) {
+        const chunkFailedMessage = /Loading chunk [\d]+ failed/;
+        if (chunkFailedMessage.test(error.message)) {
+            window.location.reload();
+        }
+    }
+}
+GlobalErrorHandler.ɵfac = function GlobalErrorHandler_Factory(t) { return new (t || GlobalErrorHandler)(); };
+GlobalErrorHandler.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: GlobalErrorHandler, factory: GlobalErrorHandler.ɵfac });
+/*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](GlobalErrorHandler, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"]
+    }], null, null); })();
+
+
+/***/ }),
+
 /***/ "./src/app/_services/index.ts":
 /*!************************************!*\
   !*** ./src/app/_services/index.ts ***!
@@ -1167,6 +1197,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_dialog_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/dialog.component */ "./src/app/shared/dialog.component.ts");
 /* harmony import */ var _loading__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./loading */ "./src/app/loading/index.ts");
 /* harmony import */ var _guard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./_guard */ "./src/app/_guard/index.ts");
+/* harmony import */ var _services_global_error_handler__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./_services/global-error-handler */ "./src/app/_services/global-error-handler.ts");
+
 
 
 
@@ -1192,6 +1224,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"],
         _services__WEBPACK_IMPORTED_MODULE_8__["BackendService"],
         _services__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+        { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ErrorHandler"], useClass: _services_global_error_handler__WEBPACK_IMPORTED_MODULE_17__["GlobalErrorHandler"] }
     ], imports: [[
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_4__["BrowserAnimationsModule"],
@@ -1242,6 +1275,7 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                     _guard__WEBPACK_IMPORTED_MODULE_16__["AuthGuard"],
                     _services__WEBPACK_IMPORTED_MODULE_8__["BackendService"],
                     _services__WEBPACK_IMPORTED_MODULE_8__["AuthenticationService"],
+                    { provide: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ErrorHandler"], useClass: _services_global_error_handler__WEBPACK_IMPORTED_MODULE_17__["GlobalErrorHandler"] }
                 ],
                 bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
             }]
